@@ -32,7 +32,8 @@ export class LogoutPage {
       console.log("Logout!");
       this.router.navigateByUrl('/login');
       console.info('Usuario a borrar:'+this.storageService.getValue('usuario'));
-      this.storageService.borrarItem('usuario');
+      // this.storageService.borrarItem('usuario'); se borraba el storage pero
+      // se creaba inmedientemente, por eso daba la impresion de que no servia, ese era el error
       this.storageService.limpiarStorage();
     }).catch(error=>{
 

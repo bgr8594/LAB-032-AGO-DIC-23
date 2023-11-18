@@ -32,9 +32,6 @@ export class LoginPage implements OnInit {
 
   ngOnInit() {
     this.buildForm();
-    this.storage.setValue('usuario',
-     {nombre:'bgr nombre', direccion:'Jose Silvestre aramberri'})
-     this.getUsuario();
   }
 
   buildForm(){
@@ -50,6 +47,7 @@ export class LoginPage implements OnInit {
         console.log('Successfully logged in!');
         this.loadingController.dismiss();
         setTimeout(() => {
+          this.guardarLocalStorage():
           this.menu.setTitle("presupuesto");
           this.router.navigate(['main/presupuesto']);
         }, 650);
@@ -132,5 +130,10 @@ export class LoginPage implements OnInit {
     catch(error=>{
       console.error(error);
     });
+  }
+  guardarLocalStorage(){
+    this.storage.setValue('usuario',
+    {nombre:'bgr nombre', direccion:'Jose Silvestre aramberri'})
+    this.getUsuario();
   }
 }
